@@ -951,6 +951,11 @@
     "@babel/helper-validator-identifier" "^7.14.8"
     to-fast-properties "^2.0.0"
 
+"@fontsource/finger-paint@^4.5.0":
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/finger-paint/-/finger-paint-4.5.0.tgz#a8a819e976fdc5458f4c20ea958d02569e43c742"
+  integrity sha512-TUFjcB0lieMtm6hItenBxzwJijxCczsVZjPzCJ6p9r0g6OogJesFz2A0mofuIpN6vKTHGqdR5nfMlA0QLHPpJQ==
+
 "@fortawesome/fontawesome-free@^5.15.3":
   version "5.15.3"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.3.tgz#c36ffa64a2a239bf948541a97b6ae8d729e09a9a"
