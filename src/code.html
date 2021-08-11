@@ -178,21 +178,140 @@
           <div class="col-lg-8">
             <pre class="line-numbers">
               <code class="language-javascript">
-                // This is a comment
-
-                const helloWorld = () => {
-                  console.log("Hello, World!");
+                const resetDisplay = () => {
+                  const errorMessage = document.getElementById("error");
+                  const results = document.getElementById("results");
+                  const resultsTable = document.getElementById("results-table");
+                
+                  errorMessage.setAttribute("hidden", true);
+                  errorMessage.setAttribute("aria-hidden", true);
+                  results.setAttribute("aria-hidden", true);
+                  results.setAttribute("hidden", true);
+                  resultsTable.innerHTML = "";
+                };
+                
+                const getValues = () => {
+                  const fizz = parseInt(document.getElementById("fizz").value);
+                  const buzz = parseInt(document.getElementById("buzz").value);
+                
+                  const validInput =
+                    Number.isInteger(fizz) && fizz >= 1 && Number.isInteger(buzz) && buzz >= 1;
+                
+                  return { error: !validInput, fizz, buzz };
+                };
+                
+                const displayError = () => {
+                  const errorMessage = document.getElementById("error");
+                
+                  errorMessage.removeAttribute("hidden");
+                  errorMessage.removeAttribute("aria-hidden");
+                };
+                
+                const buildData = (fizz, buzz) => {
+                  const fbData = [];
+                  for (let i = 1; i <= 100; i++) {
+                    let fb = "";
+                    if (i % fizz === 0) fb += "Fizz";
+                    if (i % buzz === 0) fb += "Buzz";
+                    fb === "" ? fbData.push(i) : fbData.push(fb);
+                  }
+                  return fbData;
+                };
+                
+                const makeRow = (rowData) => {
+                  let html = "<tr>";
+                  for (const i of rowData) {
+                    // prismjs doesn't play nice with template literals
+                    // view the code on github with the link in the navigation bar
+                    html += `<td class="${i}">${i}</td>`;
+                  }
+                  return html + "</tr>";
+                };
+                
+                const displayData = (fbData) => {
+                  const resultsTable = document.getElementById("results-table");
+                  const results = document.getElementById("results");
+                
+                  for (let i = 0; i < fbData.length; i = i + 5) {
+                    const rowData = [];
+                    for (let j = i; j < i + 5; j++) {
+                      rowData.push(fbData[j]);
+                    }
+                    resultsTable.innerHTML += makeRow(rowData);
+                  }
+                
+                  results.removeAttribute("hidden");
+                  results.removeAttribute("aria-hidden");
+                };
+                
+                const fizzBuzz = () => {
+                  resetDisplay();
+                  const { fizz, buzz, error } = getValues();
+                  if (error) return displayError();
+                  const fbData = buildData(fizz, buzz);
+                  displayData(fbData);
                 };
 
               </code>
             </pre>
           </div>
           <div class="col-lg-4">
-            <p>The code is structured in one function.</p>
-            <h5>Hello World</h5>
             <p>
-              Hello World is a function that logs 'Hello, World!' to the
-              console.
+              The code is structured as several functions with a primary
+              controller exported to the application.
+            </p>
+            <h5>Reset Display</h5>
+            <p>
+              A function that resets critical components of the display to
+              ensure correct viewing. Hide error and results elements. Clear
+              HTML table.
+            </p>
+
+            <h5>Get Values</h5>
+            <p>
+              A function that gets the value of 'fizz' and 'buzz' from the user
+              interface. Returns the values and whether they are valid input.
+            </p>
+
+            <h5>Display Error</h5>
+            <p>
+              A function that reveals an error message hidden from view. The
+              message indicates that inputs must be integers greater than 0 in
+              white text on a red background.
+            </p>
+
+            <h5>Build Data</h5>
+            <p>
+              A function that generates a series of numbers from a 1 to 100.
+              Replacing each number evenly divisible by 'fizzValue' with
+              <span class="Fizz">"Fizz"</span> and each number evenly divisible
+              by 'buzzValue' with <span class="Buzz">"Buzz"</span>. Numbers
+              evenly divisible by both 'fizzValue' and 'buzzValue' are replaced
+              with <span class="FizzBuzz">FizzBuzz</span>. Returns an array
+              containing the series.
+            </p>
+
+            <h5>Make Row</h5>
+            <p>
+              A function that takes an array of data and returns the data
+              formatted as an HTML table row. Elements with the value "Fizz",
+              "Buzz", and "FizzBuzz" receive special formatting.
+            </p>
+
+            <h5>Display Data</h5>
+            <p>
+              A function that takes an array of data and generates HTML table
+              row markup. Each row is 5 columns long. The markup is inserted
+              into the table element with id "results-table", then the parent
+              element with id "results" is revealed to the user.
+            </p>
+
+            <h5>FizzBuzz</h5>
+            <p>
+              The main application function. Calls getValues to get and validate
+              user input. Then displays an error if getValues finds an error in
+              input. Otherwise, calls buildData followed by displayData to
+              generate and display a table to the user.
             </p>
           </div>
         </div>
