@@ -171,36 +171,54 @@
     <main class="flex-shrink-0">
       <div class="container mt-5 px-4 py-5">
         <div class="row row-cols-1 row-cols-lg-2">
-          <div class="col">
-            <h1 class="display-5 fw-bold lh-1 mb-3">
-              FizzBuzz: A Coding Project
-            </h1>
+          <div class="col col-lg-4">
+            <h3 class="fw-bold lh-1 mb-3">FizzBuzz: A Coding Project</h3>
             <h4 class="lead">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum,
-              quam aliquam deserunt minus animi quos officia. Dolores cumque
-              ducimus laudantium?
+              When it counts you Fizz & Buzz. A javascript coding exercise using
+              loops. Write a program that prints the numbers from 1 to 100 and
+              for the multiples of '3' display
+              <span class="Fizz fw-bold">"Fizz"</span> instead of the number and
+              for the multiples of '5' display
+              <span class="Buzz fw-bold">"Buzz"</span>. If a multiple of both
+              display <span class="FizzBuzz fw-bold">"FizzBuzz"</span>.
             </h4>
             <h2 class="mt-5 border-2 border-bottom">Instructions</h2>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-              eveniet cupiditate quasi velit repellendus doloribus error
-              deserunt suscipit dicta porro.
+              Enter a fizz and a buzz value. Press the button and the values
+              will appear.
             </p>
           </div>
-          <div class="col">
+          <div class="col col-lg-8">
             <form action="submit">
+              <h4>Enter values</h4>
               <div class="row mb-5">
-                <div class="col">
-                  <label for="fizz">Enter a fizz number</label>
-                  <input id="fizz" type="number" placeholder="3" />
+                <div class="col d-flex justify-content-start">
+                  <input
+                    class="form-control"
+                    id="fizz"
+                    type="number"
+                    placeholder="Fizz"
+                    aria-label="Fizz"
+                    value="3"
+                  />
                 </div>
-                <div class="col">
-                  <label for="buzz">Enter a buzz number</label>
-                  <input id="buzz" type="number" placeholder="5" />
+                <div class="col d-flex justify-content-end">
+                  <input
+                    class="form-control"
+                    id="buzz"
+                    type="number"
+                    placeholder="Buzz"
+                    aria-label="Buzz"
+                    value="5"
+                  />
                 </div>
-                <div class="col-12 mt-2">
-                  <button id="btnSubmit" type="submit" class="btn btn-primary">
-                    Submit
+                <div class="col-12 mt-2 d-flex justify-content-end">
+                  <button
+                    id="btnSubmit"
+                    type="submit"
+                    class="btn btn-primary btn-lg"
+                  >
+                    Buzz It
                   </button>
                 </div>
               </div>
@@ -218,7 +236,7 @@
             </div>
             <div id="results" class="row" hidden aria-hidden="true">
               <h2 class="px-0">Results</h2>
-              <table class="table table-dark table-striped">
+              <table class="table table-striped table-sm">
                 <thead>
                   <tr>
                     <th scope="col" colspan="5">Fizz Buzz Results</th>

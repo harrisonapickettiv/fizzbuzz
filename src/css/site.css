@@ -73,3 +73,16 @@ main > .container {
   font-weight: 700;
   text-align: center;
 }
+
+.Fizz {
+  color: royalblue;
+}
+
+.Buzz {
+  color: yellowgreen;
+}
+
+.FizzBuzz {
+  color: red;
+  font-weight: bold;
+}

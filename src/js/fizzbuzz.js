@@ -41,7 +41,7 @@ const buildData = (fizz, buzz) => {
 const makeRow = (rowData) => {
   let html = "<tr>";
   for (const i of rowData) {
-    html += `<td>${i}</td>`;
+    html += `<td class="${i}">${i}</td>`;
   }
   return html + "</tr>";
 };
