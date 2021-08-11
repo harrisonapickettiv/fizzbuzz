@@ -1,5 +1,6 @@
-// This is a comment
+import { fizzBuzz } from "./fizzbuzz";
 
-const helloWorld = () => {
-  console.log("Hello, World!");
+document.getElementById("btnSubmit").onclick = (event) => {
+  event.preventDefault();
+  fizzBuzz();
 };
